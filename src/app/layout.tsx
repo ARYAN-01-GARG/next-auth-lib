@@ -23,6 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(" antialiased" , poppins.className)}
+        style={{
+          backgroundColor : "#41ff4e",
+          backgroundImage: "radial-gradient(ellipse at top, #41ff4e 0%, #0a6c15 100%)",
+        }}
       >
         {children}
       </body>

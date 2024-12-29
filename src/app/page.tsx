@@ -7,10 +7,7 @@ import { cn } from "@/lib/utils";
 export default function Home() {
   return (
     <main
-      className={cn("flex h-full flex-col items-center justify-center bg-[#0a6c15]")}
-      style={{
-        background: "radial-gradient(ellipse at top, #41ff4e 0%, #0a6c15 100%)",
-      }}
+      className={cn("flex h-full flex-col items-center justify-center")}
     >
       <div className="space-y-6 text-center">
         <h1 className="text-5xl md:text-6xl font-semibold text-white drop-shadow-lg">🔐 Auth</h1>

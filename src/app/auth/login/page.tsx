@@ -1,6 +1,6 @@
 'use client';
 
-export default function Loginpage() {
+export default function LoginPage() {
   return (
     <div>page</div>
   )
