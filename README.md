@@ -1,1 +1,1 @@
-# DecentLancer
+# Next-Auth-Lib
