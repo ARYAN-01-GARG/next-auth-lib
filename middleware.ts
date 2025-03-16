@@ -8,34 +8,32 @@ import {
  } from "./routes";
 const { auth } = NextAuth(authConfig);
 
-export default auth(async function middleware( req ){
+export default auth(async function middleware(req) {
   const { nextUrl } = req;
-
-  console.log("nextUrl", nextUrl);
-
   const isLoggedIn = !!req.auth;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiRoutePrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
-  if(isApiAuthRoute){
+  if (isApiAuthRoute) {
     return undefined;
   }
 
-  if(isAuthRoute){
-    if(isLoggedIn){
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT , nextUrl));
+  if (isAuthRoute) {
+    if (isLoggedIn) {
+      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
+    console.log("Auth route detected, user not logged in."); // Add logging
     return undefined;
   }
 
-  if(!isLoggedIn && !isPublicRoute){
+  if (!isLoggedIn && !isPublicRoute) {
     return Response.redirect(new URL('/auth/login', nextUrl));
   }
 
   return undefined;
-})
+});
 
 export const config = {
     matcher: [
